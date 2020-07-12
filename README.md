@@ -1,1 +1,1 @@
-# tailwind-generator-app
+# TailwindCSS Generator
