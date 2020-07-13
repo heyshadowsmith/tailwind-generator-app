@@ -50,7 +50,7 @@
           Generate a Tailwind CSS file using <span class="sm:block text-green-500 font-medium">a custom color scheme.</span>
         </h1>
         <p class="mt-6 leading-relaxed sm:text-lg md:text-xl xl:text-lg text-gray-600">
-          For when you want to incrementally adopt Tailwind CSS into a project that doesn't have a build step
+          For when you want Tailwind CSS in a project that doesn't have a build step but does have a specific color scheme
         </p>
       </div>
       <div class="flex flex-wrap">
