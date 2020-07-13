@@ -37,7 +37,7 @@
             class="ml-4 rounded-lg px-4 py-3 bg-green-500 hover:bg-green-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md"
             @click="generateTailwind"
           >
-            Generate Tailwind CSS
+            Generate CSS File
           </button>
           <button
             v-if="generateVisible && loading"
