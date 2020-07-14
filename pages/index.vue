@@ -132,7 +132,6 @@ export default {
   async created () {
     const { data } = await axios.get('https://jsonbox.io/box_1085e7dffb9d44e91241')
     this.generations = parseInt(data[0].generations)
-    console.log(JSON.stringify(this.generations, undefined, 4))
   },
   methods: {
     addColor () {
