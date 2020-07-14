@@ -85,9 +85,9 @@
           </div>
         </div>
       </div>
-      <footer class="py-6 mt-12">
+      <footer v-if="generations" class="py-6 mt-12">
         <p class="text-gray-600 text-center">
-          A useful tool created by <a target="_blank" href="https://shadowsmith.com" class="text-green-600 font-semibold">Shadow Smith</a>
+          A useful tool by <a target="_blank" href="https://shadowsmith.com" class="text-green-600 font-semibold">Shadow Smith</a> that has generated {{ generations }} CSS files to date.
         </p>
       </footer>
     </div>
@@ -111,7 +111,8 @@ export default {
           hex: '#ffffff'
         }
       ],
-      tailwind: ''
+      tailwind: '',
+      generations: ''
     }
   },
   computed: {
@@ -127,6 +128,11 @@ export default {
 
       return false
     }
+  },
+  async created () {
+    const { data } = await axios.get('https://jsonbox.io/box_1085e7dffb9d44e91241')
+    this.generations = parseInt(data[0].generations)
+    console.log(JSON.stringify(this.generations, undefined, 4))
   },
   methods: {
     addColor () {
@@ -177,6 +183,10 @@ export default {
         linkElement.setAttribute('href', dataUri)
         linkElement.setAttribute('download', 'tailwind.css')
         linkElement.click()
+
+        await axios.put('https://jsonbox.io/box_1085e7dffb9d44e91241/5f0de56b91e87e00179acf5d', {
+          generations: ++this.generations
+        })
       }
 
       this.loading = false
